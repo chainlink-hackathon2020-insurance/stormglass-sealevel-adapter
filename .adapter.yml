@@ -1,0 +1,11 @@
+name: Storm Glass Sea Level Adapter
+description: External adapter for Storm Glass sea level point API
+node_identifier: stormglass-sealevel
+platforms:
+  - GCP Functions
+data_sources:
+  - name: Storm Glass
+    url: https://stormglass.io/
+parameters:
+  - lat
+  - lng
