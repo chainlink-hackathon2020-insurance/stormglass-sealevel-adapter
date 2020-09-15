@@ -1,45 +1,58 @@
-# Chainlink NodeJS External Adapter Template
+# Storm Glass Sea Level Chainlink Adapter
 
-This template provides a basic framework for developing Chainlink external adapters in NodeJS. Comments are included to assist with development and testing of the external adapter. Once the API-specific values (like query parameters and API key authentication) have been added to the adapter, it is very easy to add some tests to verify that the data will be correctly formatted when returned to the Chainlink node. There is no need to use any additional frameworks or to run a Chainlink node in order to test the adapter.
+Chainlink external adapter for the Storm Glass (https://stormglass.io/) sea level point API.
 
-## Creating your own adapter from this template
-
-Clone this repo and change "ExternalAdapterProject" below to the name of your project
-
-```bash
-git clone https://github.com/thodges-gh/CL-EA-NodeJS-Template.git ExternalAdapterProject
-```
-
-Enter into the newly-created directory
-
-```bash
-cd ExternalAdapterProject
-```
-
-You can remove the existing git history by running:
-
-```bash
-rm -rf .git
-```
-
-See [Install Locally](#install-locally) for a quickstart
+Based on the Chainlink Adapter Template: https://github.com/thodges-gh/CL-EA-NodeJS-Template.git
 
 ## Input Params
 
-- `base`, `from`, or `coin`: The symbol of the currency to query
-- `quote`, `to`, or `market`: The symbol of the currency to convert to
+- `lat`, or `latitude`: The point's latitude.
+- `lng`, or `longitude`: The point's longitude.
 
 ## Output
 
 ```json
 {
- "jobRunID": "278c97ffadb54a5bbb93cfec5f7b5503",
- "data": {
-  "USD": 164.02,
-  "result": 164.02
- },
- "statusCode": 200
+   "jobRunID":1,
+   "data":{
+      "data":[
+         {
+            "sg":0.72,
+            "time":"2020-09-15T00:00:00+00:00"
+         }
+      ],
+      "meta":{
+         "cost":1,
+         "dailyQuota":50,
+         "datum":"MSL",
+         "end":"2020-09-15 00:00",
+         "lat":43.38,
+         "lng":-3.01,
+         "requestCount":1,
+         "start":"2020-09-14 00:00",
+         "station":{
+            "distance":4,
+            "lat":43.36,
+            "lng":-3.05,
+            "name":"bilbao",
+            "source":"sg"
+         }
+      },
+      "result":0.72
+   },
+   "result":0.72,
+   "statusCode":200
 }
+```
+
+## API Key
+
+To test and run the application locally, you need to get an API key from Storm Glass. The API key should be provided in an `.env` file at the root of the project.
+
+Example:
+
+```
+API_KEY=Your_StormGlass_API_key
 ```
 
 ## Install Locally
@@ -69,7 +82,7 @@ yarn start
 ## Call the external adapter/API server
 
 ```bash
-curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, "data": { "from": "ETH", "to": "USD" } }'
+curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, data: { lat: 43.38, lng: -3.01 } }'
 ```
 
 ## Docker
@@ -154,4 +167,4 @@ If using a REST API Gateway, you will need to disable the Lambda proxy integrati
 - Function to execute: gcpservice
 - Click More, Add variable (repeat for all environment variables)
   - NAME: API_KEY
-  - VALUE: Your_API_key
+  - VALUE: Your_StormGlass_API_key
