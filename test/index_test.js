@@ -6,10 +6,9 @@ describe('createRequest', () => {
 
   context('successful calls', () => {
     const requests = [
-      { name: 'id not supplied', testData: { data: { base: 'ETH', quote: 'USD' } } },
-      { name: 'base/quote', testData: { id: jobID, data: { base: 'ETH', quote: 'USD' } } },
-      { name: 'from/to', testData: { id: jobID, data: { from: 'ETH', to: 'USD' } } },
-      { name: 'coin/market', testData: { id: jobID, data: { coin: 'ETH', market: 'USD' } } }
+      { name: 'id not supplied', testData: { data: { lat: 43.38, lng: -3.01 } } },
+      { name: 'lat/lng', testData: { id: jobID, data: { lat: 43.38, lng: -3.01 } } },
+      { name: 'latitude/longitude', testData: { id: jobID, data: { latitude: 43.38, longitude: -3.01 } } },
     ]
 
     requests.forEach(req => {
@@ -30,10 +29,8 @@ describe('createRequest', () => {
     const requests = [
       { name: 'empty body', testData: {} },
       { name: 'empty data', testData: { data: {} } },
-      { name: 'base not supplied', testData: { id: jobID, data: { quote: 'USD' } } },
-      { name: 'quote not supplied', testData: { id: jobID, data: { base: 'ETH' } } },
-      { name: 'unknown base', testData: { id: jobID, data: { base: 'not_real', quote: 'USD' } } },
-      { name: 'unknown quote', testData: { id: jobID, data: { base: 'ETH', quote: 'not_real' } } }
+      { name: 'lng not supplied', testData: { id: jobID, data: { lat: 43.38 } } },
+      { name: 'lat not supplied', testData: { id: jobID, data: { lng: -3.01  } } }
     ]
 
     requests.forEach(req => {
