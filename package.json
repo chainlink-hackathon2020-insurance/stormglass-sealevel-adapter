@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "./node_modules/.bin/_mocha --timeout 0",
-    "start": "node app.js"
+    "start": "node app.js",
+    "start:azure": "func start"
   },
   "dependencies": {
     "@chainlink/external-adapter": "^0.2.3",

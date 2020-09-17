@@ -1,6 +1,6 @@
 package-lock.json
 *.zip
-
+.vscode/
 # Logs
 logs
 *.log
