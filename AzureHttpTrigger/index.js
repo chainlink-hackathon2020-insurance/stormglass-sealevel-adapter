@@ -1,11 +1,9 @@
 const createRequest = require('./../index').createRequest
 
 module.exports = function (context, req) {
-  context.log('Stormglass adapter request...')
+  context.log('Stormglass adapter request for Azure Lambda...')
 
   createRequest(req.body, (statusCode, data) => {
-    context.log(statusCode)
-    context.log(JSON.stringify(data))
     context.res = {
       status: statusCode,
       body: data,
