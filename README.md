@@ -1,4 +1,5 @@
 # Storm Glass Sea Level Chainlink Adapter
+[![Build Status](https://travis-ci.org/chainlink-hackathon2020-insurance/stormglass-sealevel-adapter.svg?branch=master)](https://travis-ci.org/chainlink-hackathon2020-insurance/stormglass-sealevel-adapter)
 
 Chainlink external adapter for the Storm Glass (https://stormglass.io/) sea level point API.
 
