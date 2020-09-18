@@ -17,8 +17,6 @@ describe('createRequest', () => {
           assert.equal(statusCode, 200)
           assert.equal(data.jobRunID, jobID)
           assert.isNotEmpty(data.data)
-          assert.isAbove(Number(data.result), 0)
-          assert.isAbove(Number(data.data.result), 0)
           done()
         })
       })
