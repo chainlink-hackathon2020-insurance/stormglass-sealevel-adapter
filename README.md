@@ -83,7 +83,7 @@ yarn start
 ## Call the external adapter/API server
 
 ```bash
-curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, data: { lat: 43.38, lng: -3.01 } }'
+curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, "data": { "lat": 43.38, "lng": -3.01 } }'
 ```
 
 ## Docker
