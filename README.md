@@ -169,3 +169,11 @@ If using a REST API Gateway, you will need to disable the Lambda proxy integrati
 - Click More, Add variable (repeat for all environment variables)
   - NAME: API_KEY
   - VALUE: Your_StormGlass_API_key
+  
+### Install to Azure Functions
+
+- Create an Azure Function
+- Use Visual Studio Code Azure Function Plugin and deploy directly in the IDE to you Azure Function service
+- In the Application Settings add the following
+  - NAME: API_KEY
+  - VALUE: Your_StormGlass_API_key
